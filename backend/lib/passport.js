@@ -8,11 +8,10 @@ dotenv.config();
 passport.use(
   new GoogleStrategy(
     {
-      // PASTE YOUR KEYS DIRECTLY HERE INSIDE QUOTES:
-    
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "/api/auth/google/callback",
+      proxy: true, // 👈 ADD THIS LINE! Important for Render/Heroku
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
