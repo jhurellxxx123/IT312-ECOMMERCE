@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import path from "path";
 import cookieParser from "cookie-parser";
+import passport from "./lib/passport.js";
 
 //route
 import authRoutes from "./routes/auth.route.js";
@@ -22,6 +23,7 @@ const __dirname = path.resolve();
 
 app.use(express.json({limit: "10mb"})); // allows to parse the body of request
 app.use(cookieParser()); // to parse cookies
+app.use(passport.initialize());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
@@ -29,6 +31,7 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/coupons", couponRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/analytics", analyticsRoutes);
+
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "/frontend/dist")));
