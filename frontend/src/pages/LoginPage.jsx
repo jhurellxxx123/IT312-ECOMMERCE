@@ -129,7 +129,7 @@ const LoginPage = () => {
               type='button'
               onClick={() => {
                 // Adjust this URL if your backend port is different
-                window.location.href = "http://localhost:5000/api/auth/google";
+                window.location.href = "/api/auth/google";
               }}
               className='mt-4 w-full flex items-center justify-center gap-2 bg-white text-gray-900 
               hover:bg-gray-100 font-semibold py-2.5 px-4 rounded-lg transition duration-200'

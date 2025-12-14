@@ -24,7 +24,7 @@ const SignUpPage = () => {
     // 1. Verifying with Google
     // 2. Creating the account if it doesn't exist
     // 3. Redirecting to /auth-success
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = "/api/auth/google";
   };
 
   return (
